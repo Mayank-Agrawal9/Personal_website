@@ -15,14 +15,21 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 
+from first_app.views import HomePages, BlogDetail
 from portfolio import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='home_page.html')),
+    path('api/v1/', include('first_app.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path('', TemplateView.as_view(template_name='home_page.html')),
+    path('', HomePages.as_view(template_name='home_page.html')),
+    path('single', TemplateView.as_view(template_name='single.html')),
+    path('thank-you', TemplateView.as_view(template_name='thank-you.html')),
+    path('<slug:slug>/', BlogDetail.as_view(), name='blog_inner1'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
