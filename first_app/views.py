@@ -23,8 +23,8 @@ class HomePages(TemplateView):
         context['home_page'] = HomePage.objects.latest('id')
         context['projects'] = OurProject.objects.all()
         context['skills'] = Skill.objects.all()
-        context['services'] = Service.objects.all()
-        context['education_details'] = EducationDetail.objects.all()
+        context['services'] = Service.objects.all().order_by('-created_on')
+        context['education_details'] = EducationDetail.objects.all().order_by('-id')
         context['blog_details'] = BlogModel.objects.filter(status=1).order_by('-created_on')[:2]
         return context
 
@@ -39,9 +39,6 @@ class BlogDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['nform'] = self.get_form()
-        # context['comments'] = CommentsModel.objects.select_related().filter(post=self.get_object())
-        # context['hiring_data'] = Hireme.objects.all()
         context['home_page'] = HomePage.objects.latest('id')
         context['tag'] = Tag.objects.all()
         context['blog_category'] = BlogCategory.objects.all()

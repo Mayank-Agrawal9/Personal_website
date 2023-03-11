@@ -173,7 +173,7 @@
 
     <section class="ftco-section" id="services-section">
     	<div class="container">
-    		<div class="row justify-content-center py-5 mt-5">
+    		<div class="row justify-content-center py-5 mt-3">
           <div class="col-md-12 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Services</h1>
             <h2 class="mb-4">Services</h2>
@@ -344,9 +344,9 @@
     		<div class="row">
     			<div class="col-md-6">
 					{% for project in projects %}
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(/static/images/project-4.jpg);">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({{project.project_image.url}});">
     					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
+	    				<div class="text text-center">
 	    					<h3><a href="{{project.project_link}}">{{project.project_name}}</a></h3>
 	    					<span>{{project.project_description|safe}}</span>
 	    				</div>
@@ -588,11 +588,13 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Services</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+				  {% for project in projects %}
+                <li><a href="{{project.project_link}}"><span class="icon-long-arrow-right mr-2"></span>{{project.project_name}}</a></li>
+				  {% endfor %}
+<!--                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>-->
+<!--                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>-->
+<!--                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>-->
+<!--                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>-->
               </ul>
             </div>
           </div>

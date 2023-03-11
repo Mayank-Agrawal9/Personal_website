@@ -8982,7 +8982,7 @@ h1, h2, h3, h4, h5,
       .project .overlay {
         opacity: .2; } }
   .project .text {
-    max-width: 80%;
+    max-width: 100%;
     z-index: 1;
     opacity: 0;
     -moz-transition: all 0.3s ease;
@@ -8997,9 +8997,9 @@ h1, h2, h3, h4, h5,
     .project .text span {
       color: rgba(255, 255, 255, 0.8);
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 600; }
+      letter-spacing: 1px;
+      font-size: 11px;
+      font-weight: 500; }
     @media (max-width: 767.98px) {
       .project .text {
         opacity: 1; }
@@ -9065,11 +9065,11 @@ textarea.form-control {
     font-size: 24px; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 5em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 4em 0; } }
 
 .ftco-no-pt {
   padding-top: 0 !important; }
