@@ -42,6 +42,7 @@ class BlogDetail(DetailView):
         context['home_page'] = HomePage.objects.latest('id')
         context['tag'] = Tag.objects.all()
         context['blog_category'] = BlogCategory.objects.all()
+        context['services'] = Service.objects.all().order_by('-created_on')
         context['projects'] = OurProject.objects.all()
         context['blog_details'] = BlogModel.objects.filter(status=1).order_by('-created_on')[:2]
         context['comments'] = CommentsModel.objects.select_related().filter(post=self.get_object())

@@ -28,6 +28,9 @@ class ContactForm(models.Model):
 
 
 class HomePage(models.Model):
+    meta_title = models.CharField(max_length=250, null=True)
+    meta_keyword = models.CharField(max_length=250, null=True)
+    meta_description = models.CharField(max_length=250, null=True)
     image_one = models.ImageField(blank=True, upload_to='personal_image')
     image_two = models.ImageField(blank=True, upload_to='personal_image')
     about_me_title = models.TextField(null=True, blank=True)

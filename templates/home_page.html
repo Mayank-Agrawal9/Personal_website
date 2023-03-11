@@ -1,6 +1,11 @@
 {% load static %}
 {% include 'include/base.html'%}
 {% block extra_css %}
+<title>{{home_page.meta_title}}</title>
+<meta name="description" content="{{ home_page.meta_description }}" />
+<meta name="keyword" content="{{ home_page.meta_keyword }}" />
+<meta property="og:title" content="{% if home_page.meta_title %}{{ home_page.meta_title }}{% endif %}" />
+<meta property="og:description" content="{% if home_page.meta_description %}{{ home_page.meta_description }}{% endif %}" />
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 <meta property="og:image" content="{{ request.build_absolute_uri }}/static/images/portfolio-og.png" />
 <meta property="og:image:width" content="1920" />
@@ -9,7 +14,7 @@
           {% block content %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/"><img src="{% static '/images/logo.png' %}" style="height: 59px;width: 130px;"></a>
+	      <a class="navbar-brand" href="/"><img src="{% static '/images/logo.png' %}" style="height: 59px;width: 130px;" alt="Website Logo"></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -185,7 +190,7 @@
 					<div class="col-md-4 text-center d-flex ftco-animate">
 						<a href="#" class="services-1">
 							<span class="icon">
-								<img src="{{service.icon.url}}"  style="height:60px; color:white;" >
+								<img src="{{service.icon.url}}"  style="height:60px; color:white;" alt="Service Icon">
 <!--								<i class="flaticon-analysis"></i>-->
 							</span>
 							<div class="desc">
@@ -463,7 +468,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(/static/images/bg_1.jpg)">
+    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(/static/images/bg_2.png)">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-7 ftco-animate text-center">
