@@ -124,7 +124,7 @@ class BlogModel(models.Model):
     meta_description = models.CharField(max_length=250, null=True)
     icon = models.ImageField(upload_to="images/")
     banner_img = models.ImageField(upload_to="images/")
-    outer_page_info = models.CharField(max_length=90, null=True)
+    outer_page_info = models.CharField(max_length=87, null=True)
     blog_category = models.ForeignKey('BlogCategory', on_delete=models.CASCADE)
     inner_bg_img = models.ImageField(upload_to="images/", null=True)
     content = RichTextUploadingField(blank=True)

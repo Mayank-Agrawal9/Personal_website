@@ -1,0 +1,9 @@
+User-agent: *
+
+Allow: /
+Disallow: /index/
+Disallow: /slides/
+Disallow: /privacy-policy/
+Disallow: /tnc/
+
+Sitemap: https://portfolio-website-dcsc.onrender.com/sitemap.xml

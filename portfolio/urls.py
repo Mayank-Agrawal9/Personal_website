@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 
 from first_app.views import HomePages, BlogDetail
 from portfolio import settings
@@ -27,9 +27,13 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('', TemplateView.as_view(template_name='home_page.html')),
     path('', HomePages.as_view(template_name='home_page.html')),
-    path('single', TemplateView.as_view(template_name='single.html')),
+    # path('single', TemplateView.as_view(template_name='single.html')),
+    path('404/', TemplateView.as_view(template_name='404.html')),
     path('thank-you', TemplateView.as_view(template_name='thank-you.html')),
     path('<slug:slug>/', BlogDetail.as_view(), name='blog_inner1'),
+    path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
+    path('robots.txt', RedirectView.as_view(url="/robots.txt"), name="robot"),
+    path('sitemap.xml/', TemplateView.as_view(template_name="sitemap.xml", content_type='text/plain')),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
