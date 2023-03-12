@@ -26,7 +26,7 @@ urlpatterns = [
     path('api/v1/', include('first_app.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('', TemplateView.as_view(template_name='home_page.html')),
-    path('', HomePages.as_view(template_name='home_page.html')),
+    path('', RedirectView.as_view(url="https://mayankportfolio.pythonanywhere.com/")),
     # path('single', TemplateView.as_view(template_name='single.html')),
     path('404/', TemplateView.as_view(template_name='404.html')),
     path('thank-you', TemplateView.as_view(template_name='thank-you.html')),
