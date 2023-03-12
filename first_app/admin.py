@@ -54,3 +54,11 @@ class OurProjectAdmin(admin.ModelAdmin):
     list_display = ('project_name',)
     # list_filter = ("comment",)
     search_fields = ['comment']
+
+
+@admin.register(ContactForm)
+class ContactFormAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'phone', 'email', 'subject')
+    # list_filter = ("comment",)
+    search_fields = ['name', 'phone', 'email', 'subject']
